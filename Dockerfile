@@ -4,7 +4,8 @@ FROM cassandra:latest
 #COPY cassandra.yaml /etc/cassandra/cassandra.yaml
 
 # Modify cassandra.yaml using sed
-RUN sed -i 's/^rpc_address:.*/rpc_address: 0.0.0.0/' /etc/cassandra/cassandra.yaml && \
+RUN sed -i 's/^listen_address:.*/listen_address: 0.0.0.0/' /etc/cassandra/cassandra.yaml && \
+    sed -i 's/^rpc_address:.*/rpc_address: 0.0.0.0/' /etc/cassandra/cassandra.yaml && \
     sed -i 's/^broadcast_rpc_address:.*/broadcast_rpc_address: "cassandra-production-7814.up.railway.app"/' /etc/cassandra/cassandra.yaml
 
 # Set conservative JVM heap limits to prevent OOM crashes
