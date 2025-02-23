@@ -12,7 +12,7 @@ RUN sed -i 's/^listen_address:.*/listen_address: 0.0.0.0/' /etc/cassandra/cassan
 ENV JVM_OPTS="-Xms256M -Xmx512M"
 
 # Expose Cassandra default ports
-EXPOSE 9042 7000 7001 7199 9160
+EXPOSE 9042 7000 7001 7199 9160 15449
 
 # Ensure Cassandra runs with the new config
 CMD ["cassandra", "-f"]
